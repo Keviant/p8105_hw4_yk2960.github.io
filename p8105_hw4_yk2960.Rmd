@@ -1,0 +1,21 @@
+---
+title: "p8105_hw4_yk2960"
+author: "Youyuan(Keviant) Kong"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+```
+
+
+- __Name:__ Youyuan Kong
+- __Preferred Name:__ Keviant
+- __Occupation:__ Student
+- __Favorite Animation:__  Cowboy Behop
+- __Favorite Music:__ All along the watchtower
+- __Favorite Game:__ Rance Series
+- __Favorite Manga:__ JoJo's Bizarre Adventure
+
+
+![](lk1.jpg)
