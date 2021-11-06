@@ -1,0 +1,85 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(plotly)
+library(tidyverse)
+library(p8105.datasets)
+
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Comparsion of two cities maximum and minmum temperature
+
+```{r}
+ny_noaa<-p8105.datasets::ny_noaa %>% 
+  janitor::clean_names() %>% 
+  drop_na() %>% 
+   mutate(
+    name = recode(
+      id, 
+      USC00304207 = "JAMESTOWN_NY",
+      USC00304996 = "MALONE_NY"),
+    tmin = as.numeric(tmin)/10 ,
+    tmax = as.numeric(tmax)/10 ) %>% 
+  filter(name=="JAMESTOWN_NY"|
+         name=="MALONE_NY") %>% 
+  select(name,date,tmin,tmax)
+
+ny_noaa %>%
+  mutate(text_label = str_c("\nMax temperature: $", tmax, "\nMin temperaure: ", tmin,"\nArea: ",name)) %>% 
+  plot_ly(
+    x = ~tmin, y = ~tmax, type = "scatter", mode = "markers",
+    color = ~name, text = ~text_label, alpha = 0.2)
+  
+
+
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Instacart Ailse Top 10 Bar Chart
+
+```{r}
+Instacart<-p8105.datasets::instacart
+aisle<-instacart %>%
+  group_by(aisle,aisle_id) %>%
+  summarize(n_items = n()) %>% 
+  arrange(desc(n_items))
+
+  aisle %>% 
+  filter(n_items>10000) %>% 
+  mutate(text_label = str_c("\nAisle ID: $", aisle_id, "\nNumber of items: ",n_items)) %>% 
+  plot_ly(
+    x = ~n_items, y = ~aisle, type = "bar", mode = "base",
+     text = ~text_label, alpha = 0.2)
+  
+  
+  
+```
+
+### Restaurant's boxplot according to grade and score in Manhattan
+
+```{r}
+rest_inspec<-p8105.datasets::rest_inspec %>% 
+  filter(boro=="MANHATTAN") %>% 
+  select(score,grade) %>% 
+  drop_na(.) 
+rest_inspec%>% 
+  plot_ly(y = ~score, color = ~grade, type = "box", colors = "viridis")
+  
+```
+
