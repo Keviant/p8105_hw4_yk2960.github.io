@@ -12,7 +12,7 @@ output:
   In this part, I will show some trivial personal infomation.
   
 # Resume
-  If you want to know my academic and professional experience, here is my [resume](resume.pdf)
+  If you want to know my academic and professional experience, here is my [resume](yk_cv.pdf)
 
   
 
