@@ -16,6 +16,7 @@ output: html_document
 - __Favorite Music:__ All along the watchtower
 - __Favorite Game:__ Rance Series
 - __Favorite Manga:__ JoJo's Bizarre Adventure
+This is my persinal web page...
 
 
 ![](lk1.jpg)

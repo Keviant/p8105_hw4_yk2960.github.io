@@ -1,0 +1,21 @@
+---
+title: "Youyuan Kong's web"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# Introduction
+  The Introduction of this website is [here](p8105_hw4_yk2960.html)
+  
+  In this part, I will show some trivial personal infomation.
+  
+# Resume
+  If you want to know my academic and professional experience, here is my [resume](resume.pdf)
+
+  
+
+# Dashboard
+  This is the homework part, a [dashboard](dashboard.html) which describing the restaurant inspection in NYC, showing the distribution of score for each grade in Manhattan, using instacart showing top 10 Aisle; I also show a scatter plot about comparing maximum and minmum temperature
+of two cities.
